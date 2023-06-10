@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skinmates"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name=".loginActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".loginActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
