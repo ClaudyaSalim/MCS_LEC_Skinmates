@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "469819319706",
+    "project_id": "skinmates-f662d",
+    "storage_bucket": "skinmates-f662d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469819319706:android:ac4e05cc916a5921ee0623",
+        "android_client_info": {
+          "package_name": "com.example.skinmates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469819319706-n987bagim16prk7r92retjcvsdvj882p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2ZyffGSaVfKiK0F5jzBnK_GdZJVrBWB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469819319706-n987bagim16prk7r92retjcvsdvj882p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
