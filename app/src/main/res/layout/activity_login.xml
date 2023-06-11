@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginActivity">
+    tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/welcome"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.108" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login_button"
         android:layout_width="321dp"
         android:layout_height="42dp"
         android:text="Login"
@@ -132,7 +132,7 @@
         app:layout_constraintVertical_bias="0.862" />
 
     <Button
-        android:id="@+id/registerbtn"
+        android:id="@+id/register_button"
         android:layout_width="110dp"
         android:layout_height="36dp"
         android:text="Register"
