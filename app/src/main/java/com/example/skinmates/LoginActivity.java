@@ -33,11 +33,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailEt = findViewById(R.id.ETemail);
-        passwordEt = findViewById(R.id.ETpassword);
+        emailEt = findViewById(R.id.emailFormField);
+        passwordEt = findViewById(R.id.passwordFormField);
 
-        regisBtn = findViewById(R.id.registerbtn);
-        loginBtn = findViewById(R.id.loginbtn);
+        regisBtn = findViewById(R.id.registerPageButton);
+        loginBtn = findViewById(R.id.loginButton);
 
         // mau dihubungin biar bisa coba login
         loginBtn.setOnClickListener(e->{
