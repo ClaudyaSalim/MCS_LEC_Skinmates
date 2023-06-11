@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    // buat validasi email
     public void getUserByEmail(String email, String password, ArrayList<User> userArrayList){
 
         db.collection("users")
@@ -93,12 +94,6 @@ public class LoginActivity extends AppCompatActivity {
                                return;
                             }
                             for (QueryDocumentSnapshot document : task.getResult()) {
-//                                if (document.exists()) {
-//                                    String firstName;
-//                                    String email = document.getString("Email");
-//                                } else {
-//                                    Log.d("Skinmates", "No such document");
-
                                 User user = document.toObject(User.class);
                                 user.setId(document.getId());
                                 Log.e("Document", user.getId());

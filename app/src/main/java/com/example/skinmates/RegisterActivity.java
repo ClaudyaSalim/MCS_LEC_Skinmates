@@ -69,6 +69,8 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
     }
 
+
+    // masukin user ke firebase
     public void registerUser(String firstName, String lastName, String email, String password){
 
         User user = new User(firstName, lastName, email, password);
