@@ -37,4 +37,10 @@
         <item name="android:fontFamily">@font/latobold</item>
     </style>
 
+    <style name="floating_button" parent="Theme.MaterialComponents">
+        <item name="cornerRadius">0dp</item>
+        <item name="android:backgroundTint">@color/deep_orange_100</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

@@ -1,7 +1,7 @@
-package com.example.skinmates;
+package com.example.skinmates.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.skinmates.ProductDetailActivity;
+import com.example.skinmates.R;
+import com.example.skinmates.model.Product;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -38,6 +41,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             brand = itemView.findViewById(R.id.product_brand);
             productName = itemView.findViewById(R.id.product_name);
             productRating = itemView.findViewById(R.id.product_rating);
+
+            itemView.setOnClickListener(e->{
+                Intent toDetail = new Intent(context, ProductDetailActivity.class);
+                toDetail.putExtra("Product ID", products.get(getAdapterPosition()).getId());
+                context.startActivity(toDetail);
+            });
 
         }
     }
