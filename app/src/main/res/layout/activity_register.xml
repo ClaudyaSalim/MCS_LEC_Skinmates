@@ -6,19 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="521dp"
+        android:layout_height="948dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/colorbg" />
+
     <EditText
         android:id="@+id/ETFirstName"
-        android:layout_width="316dp"
-        android:layout_height="43dp"
+        android:layout_width="315dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087" />
+        app:layout_constraintVertical_bias="0.098" />
 
     <EditText
         android:id="@+id/ETLastName"
