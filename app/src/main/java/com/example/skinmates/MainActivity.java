@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         Log.e("Main", userId);
         getUserById(userId);
         getAllProduct();
+
+        // search
+        SearchView searchView = findViewById(R.id.search_bar);
+        search(searchView);
 
         loginBtn.setOnClickListener(e->{
             Intent toLogin = new Intent(MainActivity.this, LoginActivity.class);
@@ -184,5 +189,32 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void search(SearchView searchView){
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText = newText.toLowerCase();
+                ArrayList<Product> productFilter = new ArrayList<>();
+                for(Product product:products){
+                    String nama = product.getName().toLowerCase();
+                    if (nama.contains(newText)){
+                        productFilter.add(product);
+                    }
+                }
+                productAdapter.setFilter(productFilter);
+                return true;
+            }
+
+        });
+
     }
 }
