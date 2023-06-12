@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red_100"
+    tools:context=".HomeFragment"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="276dp"
+            android:fontFamily="@font/latobold"
+            android:paddingLeft="15dp"
+            android:text="Skinmates"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.533" />
+
+        <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/profileButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/logoutButton"
+            app:layout_constraintHorizontal_bias="0.912"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="0dp"
+        tools:ignore="ScrollViewCount">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="11dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/greetingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/latobold"
+                android:text="Hello, user!"
+                android:textColor="@color/black_900"
+                android:textSize="25dp" />
+
+            <LinearLayout
+                android:ellipsize="end"
+                android:id="@+id/linearRowsearch"
+                style="@style/groupStylegray_100cornerRadius"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_13pxv"
+                android:layout_marginEnd="@dimen/_20pxh"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/search"
+                    android:layout_width="@dimen/_26pxh"
+                    android:layout_height="@dimen/_22pxh"
+                    android:layout_marginStart="@dimen/_11pxh"
+                    android:layout_marginTop="@dimen/_7pxv"
+                    android:layout_marginBottom="@dimen/_6pxv"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/search"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/search" />
+
+                <TextView
+                    android:id="@+id/txtFindProducts"
+                    style="@style/txtLatoregular20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9pxh"
+                    android:layout_marginTop="@dimen/_9pxv"
+                    android:layout_marginEnd="@dimen/_193pxh"
+                    android:layout_marginBottom="@dimen/_8pxv"
+                    android:layout_weight="0.79"
+                    android:singleLine="true"
+                    android:text="@{homeVM.homeModel.txtFindProducts}"
+                    android:textSize="12sp"
+                    tools:hint="Find Products.." />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productsView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="100dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>

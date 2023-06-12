@@ -88,4 +88,10 @@
         <item name="android:fontFamily">@font/lato</item>
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
+    <style name="groupStylegray_1">
+    <item name="android:background">@drawable/rectangle_bg_gray_100_radius_10</item>
+</style>
+<style name="groupStylegray_100cornerRadius">
+<item name="android:background">@drawable/rectangle_bg_gray_100_radius_15</item>
+</style>
 </resources>
