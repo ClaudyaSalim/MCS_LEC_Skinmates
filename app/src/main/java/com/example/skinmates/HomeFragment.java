@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
        // greetingsText.setText(Feature.getTimeGreetings() + ", " + User.currentUser.getFirstName().split(" ")[0] + "!");
 
 
-        logout = (ImageButton) view.findViewById(R.id.logoutButton);
+//        logout = (ImageButton) view.findViewById(R.id.logoutButton);
         logout.setOnClickListener(e -> {
             getActivity().finish();
             User.setUser(null);

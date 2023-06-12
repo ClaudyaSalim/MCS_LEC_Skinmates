@@ -35,8 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
         passwordEt = findViewById(R.id.ETpassword);
         // confirm pass belum ada
 
-        regisBtn = findViewById(R.id.register_button);
-        loginBtn = findViewById(R.id.login_button);
+        regisBtn = findViewById(R.id.regisButton);
+        loginBtn = findViewById(R.id.loginButton);
 
 
         // mau dihubungin biar bisa coba register

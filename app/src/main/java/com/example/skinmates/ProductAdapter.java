@@ -1,6 +1,7 @@
 package com.example.skinmates;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             brand = itemView.findViewById(R.id.product_brand);
             productName = itemView.findViewById(R.id.product_name);
             productRating = itemView.findViewById(R.id.product_rating);
+
+            itemView.setOnClickListener(e->{
+                Intent toDetail = new Intent(context, ProductDetailActivity.class);
+                toDetail.putExtra("Product ID", products.get(getAdapterPosition()).getId());
+                context.startActivity(toDetail);
+            });
 
         }
     }
