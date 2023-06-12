@@ -3,6 +3,7 @@ package com.example.skinmates;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,7 +67,10 @@ public class LoginActivity extends AppCompatActivity {
     // dari clau
     public void onHomeClick(User user) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.putExtra("User ID", user.getId());
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UserID", user.getId());
+        editor.apply();
         startActivity(intent);
         finish();
     }

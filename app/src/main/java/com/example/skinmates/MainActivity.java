@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     TextView username, loadingMsg;
     Button loginBtn;
     String userId;
+    SharedPreferences sharedPreferences;
     User user;
     ArrayList<Product>products = new ArrayList<>();
     RecyclerView recyclerView;
@@ -57,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.btn_login);
         loadingMsg = findViewById(R.id.loading_msg);
 
-        userId = getIntent().getStringExtra("User ID");
+        sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        userId = sharedPreferences.getString("UserID", null);
         Log.e("Main", userId);
         getUserById(userId);
         getAllProduct();
