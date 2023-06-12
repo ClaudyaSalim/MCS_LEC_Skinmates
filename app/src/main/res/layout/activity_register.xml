@@ -4,167 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/colorbg"
     tools:context=".RegisterActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="521dp"
-        android:layout_height="948dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bottom_mounted_card"
+        android:orientation="vertical"
+        android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/colorbg" />
-
-    <EditText
-        android:id="@+id/ETFirstName"
-        android:layout_width="315dp"
-        android:layout_height="52dp"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098" />
-
-    <EditText
-        android:id="@+id/ETLastName"
-        android:layout_width="317dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192" />
-
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="321dp"
-        android:layout_height="42dp"
-        android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintVertical_bias="1">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
-
-    <EditText
-        android:id="@+id/ETemail"
-        android:layout_width="319dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
-
-    <EditText
-        android:id="@+id/ETpassword"
-        android:layout_width="321dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="Create Your Account"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
+        app:layout_constraintVertical_bias="0.108" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ETFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/form_field"
+        android:fontFamily="@font/lato"
+        android:gravity="center_vertical"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        android:textSize="18dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ETLastName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/form_field"
+        android:fontFamily="@font/lato"
+        android:gravity="center_vertical"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="15dp"
+        android:textSize="18dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailFormField"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/form_field"
+        android:fontFamily="@font/lato"
+        android:gravity="center_vertical"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="15dp"
+        android:textSize="18dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/passwordFormField"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/form_field"
+        android:fontFamily="@font/lato"
+        android:gravity="center_vertical"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="15dp"
+        android:textSize="18dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ConfirmPasswordFormField"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/form_field"
+        android:fontFamily="@font/lato"
+        android:gravity="center_vertical"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="15dp"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/form_field"
+        android:backgroundTint="@color/red_300"
+        android:fontFamily="@font/latobold"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:backgroundTint="@color/red_300"
+        tools:ignore="MissingConstraints" />
+
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textOr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/latobold"
+        android:gravity="center"
         android:text="Or"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.8" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="325dp"
-        android:layout_height="44dp"
+        android:id="@+id/buttonGoogle"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/form_field"
+        android:backgroundTint="@color/red_300"
+        android:fontFamily="@font/latobold"
         android:text="Continue with Google"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784" />
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:backgroundTint="@color/red_300"
+        app:startIconDrawable="@drawable/img_google" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="200dp"
-        android:layout_height="22dp"
-        android:text="Already have an account?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.862" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textHaveAcc"
+            android:layout_width="190dp"
+            android:layout_height="28dp"
+            android:fontFamily="@font/latobold"
+            android:text="Already have an account?"
+            android:textSize="15dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.862" />
 
     <Button
-        android:id="@+id/login_button"
-        android:layout_width="110dp"
-        android:layout_height="36dp"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        android:id="@+id/registerPageButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/form_field2"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/latobold"
+        android:text="LOGIN"
+        android:textColor="@color/gray_901"
+        android:textSize="15dp"
+        app:backgroundTint="@color/red_100" />
+
+    </LinearLayout>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
