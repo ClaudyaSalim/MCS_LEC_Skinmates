@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.skinmates.model.Product;
+import com.example.skinmates.model.Review;
 import com.example.skinmates.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,10 +57,9 @@ public class ProductDetailActivity extends AppCompatActivity {
         reviewBtn = findViewById(R.id.review_btn);
 
         seeReviews.setOnClickListener(e->{
-            // intent to review list class
-//            Intent toCreate = new Intent(this, CreateReviewActivity.class);
-//            toCreate.putExtra("Product ID", productId);
-//            startActivity(toCreate);
+            Intent toCreate = new Intent(this, ReviewListActivity.class);
+            toCreate.putExtra("Product ID", productId);
+            startActivity(toCreate);
         });
 
         reviewBtn.setOnClickListener(e->{
@@ -105,8 +105,8 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     // back arrow
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent toGames = new Intent(this, MainActivity.class);
-        startActivityForResult(toGames, 0);
+        Intent toHome = new Intent(this, MainActivity.class);
+        startActivityForResult(toHome, 0);
         finish();
         return true;
     }

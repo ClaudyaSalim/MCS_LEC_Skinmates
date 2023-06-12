@@ -87,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
         int menuItem = item.getItemId();
 
-        if(menuItem==R.id.action_sign_out){
+        if(menuItem==R.id.action_profile){
+            Intent toLogin = new Intent(this, ProfileActivity.class);
+            startActivity(toLogin);
+        } else if(menuItem==R.id.action_sign_out){
             Intent toLogin = new Intent(this, LoginActivity.class);
             startActivity(toLogin);
             finish();

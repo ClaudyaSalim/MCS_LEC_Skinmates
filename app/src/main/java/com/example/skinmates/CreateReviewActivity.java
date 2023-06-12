@@ -66,8 +66,8 @@ public class CreateReviewActivity extends AppCompatActivity {
                 Toast.makeText(this, "Field should not be empty!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            int rating = Integer.parseInt(rate);
-            if(rating>5){
+            Double rating = Double.parseDouble(rate);
+            if(rating>5.0){
                 Toast.makeText(this, "Rating should be from 0 to 5", Toast.LENGTH_SHORT).show();
                 return;
             }
