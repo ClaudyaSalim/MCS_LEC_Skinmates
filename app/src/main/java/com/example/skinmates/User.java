@@ -2,6 +2,10 @@ package com.example.skinmates;
 
 public class User {
 
+    public static User currentUser;
+    public static void setUser(User user){
+        currentUser = user;
+    }
     private String id, firstName, lastName, email, password;
 
     public User(){
