@@ -1,4 +1,4 @@
-package com.example.skinmates;
+package com.example.skinmates.model;
 
 public class Product {
 
