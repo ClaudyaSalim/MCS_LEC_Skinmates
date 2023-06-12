@@ -1,10 +1,13 @@
 package com.example.skinmates;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import com.example.skinmates.model.Product;
 import com.example.skinmates.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
@@ -27,6 +31,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     TextView productName, brand, productRating, productDesc;
     ImageView productImg;
     ImageButton seeReviews;
+    ExtendedFloatingActionButton reviewBtn;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +41,32 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         productId = getIntent().getStringExtra("Product ID");
 
+        // appbar
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Product Detail");
+        actionBar.setHomeAsUpIndicator(R.drawable.back_arrow_icon);
+
         productName = findViewById(R.id.product_name);
         productImg = findViewById(R.id.product_img);
         brand = findViewById(R.id.product_brand);
         productRating = findViewById(R.id.product_rating);
         productDesc = findViewById(R.id.product_desc);
+        seeReviews = findViewById(R.id.see_reviews_btn);
+        reviewBtn = findViewById(R.id.review_btn);
+
+        seeReviews.setOnClickListener(e->{
+            // intent to review list class
+//            Intent toCreate = new Intent(this, CreateReviewActivity.class);
+//            toCreate.putExtra("Product ID", productId);
+//            startActivity(toCreate);
+        });
+
+        reviewBtn.setOnClickListener(e->{
+            Intent toCreate = new Intent(this, CreateReviewActivity.class);
+            toCreate.putExtra("Product ID", productId);
+            startActivity(toCreate);
+        });
 
         getProductbByID(productId);
 
@@ -74,5 +101,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         brand.setText(product.getBrand());
         productRating.setText(String.valueOf(product.getRating()));
         productDesc.setText(product.getDescription());
+    }
+
+    // back arrow
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent toGames = new Intent(this, MainActivity.class);
+        startActivityForResult(toGames, 0);
+        finish();
+        return true;
     }
 }

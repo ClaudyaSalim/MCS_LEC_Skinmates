@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     TextView username, loadingMsg;
     Button loginBtn;
     String userId;
-    SharedPreferences sharedPreferences;
     User user;
     ArrayList<Product>products = new ArrayList<>();
     RecyclerView recyclerView;
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.btn_login);
         loadingMsg = findViewById(R.id.loading_msg);
 
-        sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
         userId = sharedPreferences.getString("UserID", null);
         Log.e("Main", userId);
         getUserById(userId);
