@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/colorbg"
     tools:context=".ProductDetailActivity">
 
     <ScrollView
@@ -25,6 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:text="Product Name"
+                android:fontFamily="@font/latobold"
+                android:textSize="18sp"
                 android:textAlignment="center" />
 
             <ImageView
@@ -39,12 +42,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Brand" />
+                android:text="Brand"
+                android:fontFamily="@font/lato"
+                android:textSize="15sp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rating" />
+                android:text="Rating"
+                android:fontFamily="@font/lato"
+                android:textSize="15sp"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -58,7 +67,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="16dp"
-                    android:text="0.0" />
+                    android:text="0.0"
+                    android:fontFamily="@font/lato"
+                    android:textSize="15sp"
+                    />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -72,7 +84,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:text="Description" />
+                android:text="Description"
+                android:fontFamily="@font/lato"
+                android:textSize="15sp"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -82,7 +97,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all reviews" />
+                    android:text="See all reviews"
+                    android:fontFamily="@font/lato"/>
 
                 <ImageButton
                     android:id="@+id/see_reviews_btn"

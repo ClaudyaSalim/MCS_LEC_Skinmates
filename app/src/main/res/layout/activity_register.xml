@@ -65,7 +65,7 @@
         android:textSize="18dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ETemail"
+        android:id="@+id/emailFormField"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -78,7 +78,7 @@
         android:textSize="18dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ETpassword"
+        android:id="@+id/passwordFormField"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -103,23 +103,23 @@
         android:paddingHorizontal="15dp"
         android:textSize="18dp" />
 
+    <Button
+        android:id="@+id/registerButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/form_field"
+        android:backgroundTint="@color/red_300"
+        android:fontFamily="@font/latobold"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:backgroundTint="@color/red_300"
+        tools:ignore="MissingConstraints" />
 
-        <Button
-            android:id="@+id/regisButton"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/form_field"
-            android:backgroundTint="@color/red_300"
-            android:fontFamily="@font/latobold"
-            android:text="Register"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            app:backgroundTint="@color/red_300"
-            tools:ignore="MissingConstraints" />
 
-        <TextView
+    <TextView
         android:id="@+id/textOr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
             app:layout_constraintVertical_bias="0.862" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerPageButton"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
