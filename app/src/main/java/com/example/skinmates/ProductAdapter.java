@@ -62,4 +62,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public int getItemCount() {
         return products.size();
     }
+
+    public void setFilter(ArrayList<Product> filterModel) {
+        products = new ArrayList<>();
+        products.addAll(filterModel);
+        notifyDataSetChanged();
+    }
 }
