@@ -3,13 +3,13 @@ package com.example.skinmates;
 public class Product {
 
     private String id, brand, name, imageLink, description;
-    int rating;
+    double rating;
 
     public Product(){
 
     }
 
-    public Product(String brand, String name, String imageLink, String description, int rating) {
+    public Product(String brand, String name, String imageLink, String description, double rating) {
         this.brand = brand;
         this.name = name;
         this.imageLink = imageLink;
@@ -57,11 +57,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 }

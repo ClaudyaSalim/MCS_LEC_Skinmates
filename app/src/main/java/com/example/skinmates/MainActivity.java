@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         userId = getIntent().getStringExtra("User ID");
         Log.e("Main", userId);
         getUserById(userId);
-        setValues();
+        getAllProduct();
 
         loginBtn.setOnClickListener(e->{
             Intent toLogin = new Intent(MainActivity.this, LoginActivity.class);
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     public void setValues(){
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "https://makeup-api.herokuapp.com/api/v1/products.json?price_greater_than=50.0";
+        String url = "https://makeup-api.herokuapp.com/api/v1/products.json?rating_greater_than=4.2&rating_less_than=4.5";
         JsonArrayRequest request = new JsonArrayRequest(
                 url,
 
@@ -107,13 +108,16 @@ public class MainActivity extends AppCompatActivity {
 
                                 JSONObject productJson = response.getJSONObject(i);
                                 String brand, name, image, desc;
+                                double rating;
                                 brand = productJson.getString("brand");
                                 name = productJson.getString("name");
                                 image = productJson.getString("image_link");
                                 desc = productJson.getString("description");
+                                rating = productJson.getDouble("rating");
 
-                                Product product = new Product(brand, name, image, desc, 0);
+                                Product product = new Product(brand, name, image, desc, rating);
                                 products.add(product);
+                                insertProduct(product);
                                 Log.i("ASD", "Product added");
 
                             } catch (JSONException e) {
@@ -149,5 +153,36 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(productAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         Log.i("Item count", String.valueOf(productAdapter.getItemCount()));
+    }
+
+    // masukin produk ke firebase
+    public void insertProduct(Product product){
+
+        db.collection("products").add(product);
+
+    }
+
+    public void getAllProduct(){
+        db.collection("products").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
+
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    if(task.getResult().isEmpty()){
+                        setValues();
+                        return;
+                    }
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Product product = document.toObject(Product.class);
+                        product.setId(document.getId());
+                        Log.e("Document", product.getId());
+                        products.add(product);
+                    }
+                    setProductRv();
+                } else {
+                    Log.e("Skinmates", "Error getting documents.", task.getException());
+                }
+            }
+        });
     }
 }

@@ -28,8 +28,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
-        TextView brand, productName;
-        // jumlah reviews & rating otw
+        TextView brand, productName, productRating;
+        // jumlah reviews otw
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -37,6 +37,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             image = itemView.findViewById(R.id.product_pic);
             brand = itemView.findViewById(R.id.product_brand);
             productName = itemView.findViewById(R.id.product_name);
+            productRating = itemView.findViewById(R.id.product_rating);
 
         }
     }
@@ -53,7 +54,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         Picasso.get().load(products.get(position).getImageLink()).error(R.drawable.logo_skinmates).into(holder.image);
         holder.brand.setText(products.get(position).getBrand());
         holder.productName.setText(products.get(position).getName());
-        // rating & total review
+        holder.productRating.setText(String.valueOf(products.get(position).getRating()));
+        // total review
     }
 
     @Override
