@@ -114,8 +114,9 @@ public class CreateReviewActivity extends AppCompatActivity {
 
     // back arrow
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent toGames = new Intent(this, MainActivity.class);
-        startActivityForResult(toGames, 0);
+        Intent toDetail = new Intent(this, ProductDetailActivity.class);
+        toDetail.putExtra("Product ID", productId);
+        startActivityForResult(toDetail, 0);
         finish();
         return true;
     }

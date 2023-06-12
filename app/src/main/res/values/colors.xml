@@ -26,7 +26,7 @@
     <color name="gray_50">#fafafa</color>
     <color name="black_900_1e">#1e000000</color>
     <color name="red_100">#f7c9c8</color>
-    <color name="black_900">#000000</color>
+<!--    <color name="black_900">#000000</color>-->
     <color name="deep_orange_200_bf">#bffd9c92</color>
     <color name="purple_50">#f7ebf2</color>
     <color name="pink_100">#fdaabe</color>
@@ -44,6 +44,6 @@
     <color name="red_100_bf">#bfffc5e1</color>
     <color name="bluegray_700">#455a64</color>
     <color name="black_900_19">#19000000</color>
-    <color name="white_A700">#ffffff</color>
+<!--    <color name="white_A700">#ffffff</color>-->
     <color name="gray_700_00">#005e5e5e</color>
 </resources>
