@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/deep_orange_51</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="actionOverflowButtonStyle">@style/ThreeDotColor</item>
 <!--        <item name="android:actionMenuTextColor">@style/myTheme.ActionBar.Text</item>-->
 <!--        <item name="actionBarStyle">@style/myTheme</item>-->
         <!-- Customize your theme here. -->
@@ -35,6 +36,10 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20dp</item>
         <item name="android:fontFamily">@font/latobold</item>
+    </style>
+
+    <style name="ThreeDotColor" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="tint">#941a31</item>
     </style>
 
 </resources>
