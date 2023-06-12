@@ -67,6 +67,10 @@ public class CreateReviewActivity extends AppCompatActivity {
                 return;
             }
             int rating = Integer.parseInt(rate);
+            if(rating>5){
+                Toast.makeText(this, "Rating should be from 0 to 5", Toast.LENGTH_SHORT).show();
+                return;
+            }
             Review review = new Review(productId, userId, desc, rating);
             insertReview(review);
             Intent intent = new Intent(CreateReviewActivity.this, MainActivity.class);

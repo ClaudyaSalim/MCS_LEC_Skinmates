@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -54,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        username = findViewById(R.id.username);
-        loginBtn = findViewById(R.id.btn_login);
+        username = findViewById(R.id.greetingsText);
+//        loginBtn = findViewById(R.id.btn_login);
         loadingMsg = findViewById(R.id.loading_msg);
 
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
@@ -68,17 +69,31 @@ public class MainActivity extends AppCompatActivity {
         SearchView searchView = findViewById(R.id.search_bar);
         search(searchView);
 
-        loginBtn.setOnClickListener(e->{
-            Intent toLogin = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(toLogin);
-        });
+//        loginBtn.setOnClickListener(e->{
+//            Intent toLogin = new Intent(MainActivity.this, LoginActivity.class);
+//            startActivity(toLogin);
+//        });
 
     }
 
-    @SuppressLint("ResourceType")
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int menuItem = item.getItemId();
+
+        if(menuItem==R.id.action_sign_out){
+            Intent toLogin = new Intent(this, LoginActivity.class);
+            startActivity(toLogin);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -95,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     if (document.exists() && !document.getData().isEmpty()) {
                         user = document.toObject(User.class);
                         user.setId(document.getId());
-                        username.setText(user.getFirstName());
+                        username.setText("Hello, " + user.getFirstName() + " " + user.getLastName() + "!");
                     } else {
                         Log.d("Skinmates", "No such document");
                     }

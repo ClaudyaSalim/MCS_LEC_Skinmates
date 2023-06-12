@@ -10,48 +10,26 @@
     android:padding="40dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User name"
-        android:id="@+id/username"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/btn_login"
-        android:text="Go to Login"
-        android:background="@drawable/form_field2"
-        android:backgroundTint="@color/red_100"
-        app:backgroundTint="@color/deep_orange_100"
-        app:layout_constraintTop_toBottomOf="@id/username"
-        app:layout_constraintStart_toStartOf="parent"/>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:paddingLeft="15dp"
         android:paddingTop="0dp"
-        android:paddingRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="ScrollViewCount">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="11dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/greetingsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:fontFamily="@font/latobold"
                 android:text="Hello, user!"
                 android:textColor="@color/black"
