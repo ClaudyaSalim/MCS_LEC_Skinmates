@@ -17,13 +17,16 @@
 
             <TextView
                 android:id="@+id/heading"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Heading"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/star_icon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginRight="16dp"/>
 
             <ImageView
+                android:id="@+id/star_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/round_star_icon"
@@ -45,7 +48,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Paragraph"/>
+            android:text="Paragraph" />
 
     </LinearLayout>
 

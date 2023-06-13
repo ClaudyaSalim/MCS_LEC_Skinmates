@@ -47,9 +47,8 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
         if(layout.equals("User Reviews")){
             getUserByID(db, reviews.get(position).getUserId(), holder, position);
-//            holder.heading.setText(username);
-//            holder.rating.setText(String.valueOf(reviews.get(position).getRating()));
-//            holder.description.setText(reviews.get(position).getDescription());
+        } else if (layout.equals("Product Reviews")) {
+            getProductByID(db, reviews.get(position).getProductId(), holder, position);
         }
 
     }
@@ -74,7 +73,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     }
 
     public void getUserByID(FirebaseFirestore db, String id, ViewHolder holder, int position){
-        ArrayList<User>users = new ArrayList<>();
         db.collection("users").document(id)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -96,17 +94,9 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
                         }
                     }
                 });
-
-//        if(users.size()!=0){
-//            return users.get(0);
-//        }
-//        else {
-//            return null;
-//        }
     }
 
-    public Product getProductByID(FirebaseFirestore db, String id){
-        ArrayList<Product>products = new ArrayList<>();
+    public void getProductByID(FirebaseFirestore db, String id, ViewHolder holder, int position){
         db.collection("products").document(id)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -117,7 +107,10 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
                             if (document.exists() && !document.getData().isEmpty()) {
                                 Product product = document.toObject(Product.class);
                                 product.setId(document.getId());
-                                products.add(product);
+                                String productName = product.getName();
+                                holder.heading.setText(productName);
+                                holder.rating.setText(String.valueOf(reviews.get(position).getRating()));
+                                holder.description.setText(reviews.get(position).getDescription());
                             } else {
                                 Log.d("Skinmates", "No such document");
                             }
@@ -126,13 +119,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
                         }
                     }
                 });
-
-        if(products.size()!=0){
-            return products.get(0);
-        }
-        else {
-            return null;
-        }
     }
 
 }
