@@ -2,6 +2,7 @@ package com.example.skinmates.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.skinmates.ProductDetailActivity;
 import com.example.skinmates.R;
 import com.example.skinmates.model.Product;
+import com.example.skinmates.model.Review;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -31,7 +38,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
-        TextView brand, productName, productRating;
+        TextView brand, productName, productRating, reviewsQty;
         // jumlah reviews otw
 
         public ViewHolder(@NonNull View itemView) {
@@ -41,6 +48,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             brand = itemView.findViewById(R.id.product_brand);
             productName = itemView.findViewById(R.id.product_name);
             productRating = itemView.findViewById(R.id.product_rating);
+            reviewsQty = itemView.findViewById(R.id.qty_reviews);
 
             itemView.setOnClickListener(e->{
                 Intent toDetail = new Intent(context, ProductDetailActivity.class);
@@ -60,11 +68,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Picasso.get().load(products.get(position).getImageLink()).error(R.drawable.logo_skinmates).into(holder.image);
-        holder.brand.setText(products.get(position).getBrand());
-        holder.productName.setText(products.get(position).getName());
-        holder.productRating.setText(String.valueOf(products.get(position).getRating()));
-        // total review
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Product product = products.get(position);
+        Picasso.get().load(product.getImageLink()).error(R.drawable.logo_skinmates).into(holder.image);
+        holder.brand.setText(product.getBrand());
+        holder.productName.setText(product.getName());
+        holder.productRating.setText(String.valueOf(product.getRating()));
+        getReviewsByProductID(db, product.getId(), holder, position);
     }
 
     @Override
@@ -76,5 +87,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         products = new ArrayList<>();
         products.addAll(filterModel);
         notifyDataSetChanged();
+    }
+
+    public void getReviewsByProductID(FirebaseFirestore db, String productId, ViewHolder holder, int position){
+        ArrayList reviews = new ArrayList<>();
+        db.collection("reviews")
+                .whereEqualTo("productId", productId)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Review review = document.toObject(Review.class);
+                                reviews.add(review);
+                            }
+                            holder.reviewsQty.setText(String.valueOf(reviews.size()) + " reviews");
+                        } else {
+                            Log.d("Skinmates", "get failed with ", task.getException());
+                        }
+                    }
+                });
     }
 }

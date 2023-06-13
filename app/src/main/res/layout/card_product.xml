@@ -39,7 +39,7 @@
                 android:text="Product Name"/>
 
             <TextView
-                android:id="@+id/no_reviews"
+                android:id="@+id/qty_reviews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 reviews"/>
