@@ -115,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
                         user.setId(document.getId());
                         username.setText("Hello, " + user.getFirstName() + " " + user.getLastName() + "!");
                     } else {
-                        Log.d("Skinmates", "No such document");
+                        Log.e("Skinmates", "No such document");
                     }
                 } else {
-                    Log.d("Skinmates", "get failed with ", task.getException());
+                    Log.e("Skinmates", "get failed with ", task.getException());
                 }
             }
         });

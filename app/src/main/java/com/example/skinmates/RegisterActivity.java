@@ -1,14 +1,20 @@
 package com.example.skinmates;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.skinmates.model.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -41,7 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
             String email = emailEt.getText().toString();
             String password = passwordEt.getText().toString();
             registerUser(firstName, lastName, email, password);
-//            onHomeClick();
         });
 
         loginBtn.setOnClickListener(e->{
@@ -68,8 +73,25 @@ public class RegisterActivity extends AppCompatActivity {
     public void registerUser(String firstName, String lastName, String email, String password){
 
         User user = new User(firstName, lastName, email, password);
-
-        db.collection("users").add(user);
-
+        db.collection("users").add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.e("Skinmates", "DocumentSnapshot added with ID: " + documentReference.getId());
+                        String id = documentReference.getId();
+                        user.setId(id);
+                        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("UserID", user.getId());
+                        editor.apply();
+                        onHomeClick();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("Skinmates", "Error adding document", e);
+                    }
+                });
     }
 }
