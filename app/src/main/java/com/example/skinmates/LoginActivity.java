@@ -48,16 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    public void onHomeClick(View view) {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    public void onRegisterClick(View view) {
-        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     public void onHomeClick(User user) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
