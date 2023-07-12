@@ -4,7 +4,6 @@ public class Product {
 
     private String id, brand, name, imageLink, description;
     double rating;
-
     public Product(){
 
     }

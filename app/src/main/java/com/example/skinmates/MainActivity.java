@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,8 +13,6 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toolbar;
-
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -32,11 +28,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -99,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    // liat yg login siapa
     public void getUserById(String id){
         ArrayList<User> users = new ArrayList<>();
         db.collection("users").document(id)
@@ -124,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    // tampilin produk
     public void setValues(){
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -160,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
-                        // olah response nya setelah dapet
                         setProductRv();
                     }
                 },
@@ -190,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Item count", String.valueOf(productAdapter.getItemCount()));
     }
 
-    // masukin produk ke firebase
     public void insertProduct(Product product){
 
         db.collection("products").add(product);
@@ -243,8 +231,6 @@ public class MainActivity extends AppCompatActivity {
                 productAdapter.setFilter(productFilter);
                 return true;
             }
-
         });
-
     }
 }

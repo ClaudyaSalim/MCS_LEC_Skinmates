@@ -4,7 +4,6 @@ public class Review {
 
     private String reviewId, productId, userId, description;
     private double rating;
-
     public Review(){
 
     }

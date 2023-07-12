@@ -5,7 +5,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.skinmates.adapter.ReviewAdapter;
 import com.example.skinmates.model.Review;
 import com.example.skinmates.model.User;
@@ -24,7 +22,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -49,7 +46,6 @@ public class ProfileActivity extends AppCompatActivity {
         text = findViewById(R.id.text);
         reviewRv = findViewById(R.id.review_rv_product);
 
-        // action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Profile");
@@ -78,7 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         finish();
     }
 
-    // back arrow
     public boolean onOptionsItemSelected(MenuItem item){
         Intent toHome = new Intent(this, MainActivity.class);
         startActivityForResult(toHome, 0);
@@ -131,7 +126,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
     }
-
 
     public void setReviewsRv(){
         reviewAdapter = new ReviewAdapter(this, reviews, "Product Reviews");

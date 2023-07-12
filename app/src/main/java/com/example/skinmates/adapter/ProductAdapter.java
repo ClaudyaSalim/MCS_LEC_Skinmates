@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.skinmates.ProductDetailActivity;
 import com.example.skinmates.R;
 import com.example.skinmates.model.Product;
@@ -22,7 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
@@ -39,7 +36,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         ImageView image;
         TextView brand, productName, productRating, reviewsQty;
-        // jumlah reviews otw
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,7 +51,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 toDetail.putExtra("Product ID", products.get(getAdapterPosition()).getId());
                 context.startActivity(toDetail);
             });
-
         }
     }
 

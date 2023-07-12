@@ -2,7 +2,6 @@ package com.example.skinmates;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.skinmates.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,9 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginButton);
 
 
-        // mau dihubungin biar bisa coba register
         regisBtn.setOnClickListener(e->{
-            // validasi belum
             String firstName = firstNameEt.getText().toString();
             String lastName = lastNameEt.getText().toString();
             String email = emailEt.getText().toString();
@@ -55,7 +51,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    // dari clau
     public void onHomeClick() {
         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
         startActivity(intent);
@@ -68,8 +63,6 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
     }
 
-
-    // masukin user ke firebase
     public void registerUser(String firstName, String lastName, String email, String password){
 
         User user = new User(firstName, lastName, email, password);

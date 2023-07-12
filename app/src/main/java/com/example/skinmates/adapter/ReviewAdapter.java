@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.skinmates.R;
 import com.example.skinmates.model.Product;
 import com.example.skinmates.model.Review;
@@ -18,7 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.ArrayList;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder> {
@@ -50,7 +47,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
         } else if (layout.equals("Product Reviews")) {
             getProductByID(db, reviews.get(position).getProductId(), holder, position);
         }
-
     }
 
     @Override
@@ -68,7 +64,6 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
             heading = itemView.findViewById(R.id.heading);
             rating = itemView.findViewById(R.id.rating);
             description = itemView.findViewById(R.id.description);
-
         }
     }
 

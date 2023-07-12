@@ -5,24 +5,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 import com.example.skinmates.adapter.ReviewAdapter;
 import com.example.skinmates.model.Review;
-import com.example.skinmates.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 
 public class ReviewListActivity extends AppCompatActivity {
@@ -44,7 +39,6 @@ public class ReviewListActivity extends AppCompatActivity {
         productId = getIntent().getStringExtra("Product ID");
         getReviewsByProductID(productId);
 
-        // appbar
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("Product Detail");
@@ -59,7 +53,6 @@ public class ReviewListActivity extends AppCompatActivity {
             toCreate.putExtra("Product ID", productId);
             startActivity(toCreate);
         });
-
     }
 
     public void getReviewsByProductID(String productId){
@@ -93,7 +86,6 @@ public class ReviewListActivity extends AppCompatActivity {
         }
     }
 
-    // back arrow
     public boolean onOptionsItemSelected(MenuItem item){
         Intent toDetail = new Intent(this, ProductDetailActivity.class);
         toDetail.putExtra("Product ID", productId);

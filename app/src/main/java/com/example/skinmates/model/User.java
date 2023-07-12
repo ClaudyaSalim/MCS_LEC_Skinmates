@@ -9,7 +9,6 @@ public class User {
     private String id, firstName, lastName, email, password;
 
     public User(){
-        // empty constructor buat firebase
     }
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;

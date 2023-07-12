@@ -154,7 +154,6 @@
                 android:textSize="15dp"
                 app:backgroundTint="@color/red_100" />
 
-
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

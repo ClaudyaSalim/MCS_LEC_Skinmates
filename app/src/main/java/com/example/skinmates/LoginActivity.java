@@ -2,7 +2,6 @@ package com.example.skinmates;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.skinmates.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
         regisBtn = findViewById(R.id.registerPageButton);
         loginBtn = findViewById(R.id.loginButton);
 
-        // mau dihubungin biar bisa coba login
         loginBtn.setOnClickListener(e->{
             String email = emailEt.getText().toString();
             String password = passwordEt.getText().toString();
@@ -56,15 +53,12 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-//    test
     public void onRegisterClick(View view) {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
         finish();
     }
 
-
-    // dari clau
     public void onHomeClick(User user) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
@@ -81,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    // buat validasi email
     public void getUserByEmail(String email, String password, ArrayList<User> userArrayList){
 
         db.collection("users")
