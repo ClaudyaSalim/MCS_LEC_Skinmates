@@ -62,11 +62,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
     }
-//    public void onBackkClick(View view) {
-//        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-//        startActivity(intent);
-//        finish();
-//    }
 
     public void onOutClick() {
         Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);

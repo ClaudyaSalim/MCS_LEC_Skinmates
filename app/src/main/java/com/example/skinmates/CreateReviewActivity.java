@@ -106,12 +106,6 @@ public class CreateReviewActivity extends AppCompatActivity {
         db.collection("reviews").add(review);
     }
 
-    public void onBackClick(View view) {
-        Intent intent = new Intent(CreateReviewActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     // back arrow
     public boolean onOptionsItemSelected(MenuItem item){
         Intent toDetail = new Intent(this, ProductDetailActivity.class);
